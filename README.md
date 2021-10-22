@@ -1,4 +1,4 @@
-![Preview](assets/img/preview.png)
+![Preview](/assets/img/preview.png)
 
 ### Run
 
