@@ -2,55 +2,72 @@ import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 
 export default () => {
-  // Stats
-  const [inputText, setInputText] = useState({
-    topText: "1ST TEXT",
-    bottomText: "2nd TEXT",
-  });
-  const [randomImage, setRandomImage] = useState(
-    "https://i.imgflip.com/1bhw.jpg"
-  );
-  const [allMemeImgs, setAllMemeImgs] = useState([]);
-
-  // Inputs
-  const handleChange = (e) => {
-    setInputText({
-      ...inputText,
-      [e.target.name]: e.target.value,
+    // Stats
+    const [inputText, setInputText] = useState({
+        topText: "1ST TEXT",
+        bottomText: "2nd TEXT",
     });
-  };
 
-  // Random Image
-  const randomImg = (e) => {
-    e.preventDefault();
-    const randNum = Math.floor(Math.random() * allMemeImgs.length);
-    const randMemeImgUrl = allMemeImgs[randNum].url;
-    setRandomImage(randMemeImgUrl);
-  };
+    const [randomImage, setRandomImage] = useState(
+        "https://i.imgflip.com/1bhw.jpg"
+    );
 
-  // Fetch Images
-  useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes")
-      .then((response) => response.json())
-      .then((response) => setAllMemeImgs(response.data.memes));
-  }, []);
+    const [allMemeImgs, setAllMemeImgs] = useState([]);
 
-  return (
-    <div>
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    // Inputs
+    const handleChange = (e) => {
+        setInputText({
+            ...inputText,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    // Random Image
+    const randomImgFunc = (e) => {
+        e.preventDefault();
+        const randNum = Math.floor(Math.random() * allMemeImgs.length);
+        const randMemeImgUrl = allMemeImgs[randNum].url;
+        setRandomImage(randMemeImgUrl);
+    };
+
+    // Fetch Images
+    useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+            .then((res) => res.json())
+            .then((res) => setAllMemeImgs(res.data.memes));
+    }, []);
+
+    // Uplaod image
+    let uploadImg = e => setSelectedImage(e.target.files[0]);
+
+    // Remove uploaded image
+    let removeUplaodedImg = () => setSelectedImage(null)
+
+
+    return (
+        <div>
       {/* Logo */}
       <Logo />
+
 
       <div className="warpper container">
         {/* Photo */}
         <div className="img-wrapper">
           {/* Img and text */}
           <h3 className="top-text text">{inputText.topText}</h3>
-          <img src={randomImage} />
+          
+          { selectedImage 
+            ? ( <img src={URL.createObjectURL(selectedImage)} /> )
+            : ( <img src={randomImage} /> )
+          }     
+
           <h3 className="bottom-text text">{inputText.bottomText}</h3>
         </div>
 
         {/* Input */}
-        <form className="form" onSubmit={randomImg}>
+        <form className="form" onSubmit={randomImgFunc}>
           <input
             type="text"
             name="topText"
@@ -70,7 +87,7 @@ export default () => {
           {/* Btns */}
           <div className="btns">
             {/* Random Img */}
-            <a onClick={randomImg} alt="Random">
+            <a onClick={randomImgFunc} alt="Random">
               <img src="/assets/img/random.png" />
             </a>
 
@@ -78,19 +95,14 @@ export default () => {
             <a href={randomImage} alt="Download" download target="_blank">
               <img src="/assets/img/downlaod.png" />
             </a>
-
-            {/* UPlaod Img */}
-            <a href={randomImage} alt="Uplaod">
-              <img src="/assets/img/upload.png" />
-            </a>
+            
+            {/* Upload Image */}
+              <input type="file" onChange={uploadImg} />
+            {/* Remove Image */}
+              <img onClick={removeUplaodedImg} src="/assets/img/delete.png" alt="Remove image"/>
           </div>
         </form>
+      </div> 
       </div>
-
-      {/* CopyRight */}
-      {/* <div className='copyright'>
-        By: <a href='https://github.com/moghaazi'>moghaazi</a>
-      </div>*/}
-    </div>
-  );
+    );
 };
