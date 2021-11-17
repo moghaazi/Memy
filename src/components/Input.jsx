@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactTooltip from 'react-tooltip';
 import Logo from "./Logo";
 
 export default () => {
@@ -51,6 +52,8 @@ export default () => {
       {/* Logo */}
       <Logo />
 
+      {/* React Tooltip */}
+      <ReactTooltip place="bottom" type="light" effect="solid"/>
 
       <div className="warpper container">
         {/* Photo */}
@@ -87,19 +90,23 @@ export default () => {
           {/* Btns */}
           <div className="btns">
             {/* Random Img */}
-            <a onClick={randomImgFunc} alt="Random">
+            <a onClick={randomImgFunc} data-tip="Random Image" alt="Random">
               <img src="/assets/img/random.png" />
             </a>
 
             {/* Downlaod Img */}
-            <a href={randomImage} alt="Download" download target="_blank">
+            <a href={randomImage} data-tip="Downlaod Image" alt="Download" download target="_blank">
               <img src="/assets/img/downlaod.png" />
             </a>
             
             {/* Upload Image */}
-              <input type="file" onChange={uploadImg} />
+              <input type="file" onChange={uploadImg} id="fileUpload" />
+              <label for="fileUpload" data-tip="Uplaod Image">
+                <img src="/assets/img/upload.png" />
+              </label>
+           
             {/* Remove Image */}
-              <img onClick={removeUplaodedImg} src="/assets/img/delete.png" alt="Remove image"/>
+              <img onClick={removeUplaodedImg} data-tip="Remove Image" src="/assets/img/delete.png" alt="Remove image"/>
           </div>
         </form>
       </div> 
