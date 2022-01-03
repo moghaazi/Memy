@@ -97,7 +97,7 @@ export default () => {
               data-tip='Random Image'
               alt='Random'
             >
-              <img src='/assets/img/random.png' />
+              <img src='/assets/img/random.png' alt='Random Img' />
             </a>
 
             {/* Downlaod Img */}
@@ -108,13 +108,13 @@ export default () => {
               target='_blank'
               onClick={e => download(e)}
             >
-              <img src='/assets/img/downlaod.png' />
+              <img src='/assets/img/downlaod.png' alt='Download Img' />
             </a>
 
             {/* Upload Image */}
             <input type='file' onChange={uploadImg} id='fileUpload' />
             <label htmlFor='fileUpload' data-tip='Upload Image'>
-              <img src='/assets/img/upload.png' />
+              <img src='/assets/img/upload.png' alt='Upload Img' />
             </label>
 
             {/* Remove Image */}
