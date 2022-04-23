@@ -1,5 +1,5 @@
 // --------------------------- Font --------------------------------------
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 
 *,
 *::before,
@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
   background-color: #121212;
   color: white;
-  font: bold 2em 'Montserrat', sans-serif;
+  font: bold 2em cursive;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,7 +160,7 @@ body {
     .text {
       position: absolute;
       color: white;
-      font: bold 3rem 'Montserrat', sans-serif;
+      font-size: 3rem;
       text-align: center;
       -webkit-text-stroke: 2.5px #111 !important;
       z-index: 5;

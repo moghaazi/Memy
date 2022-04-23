@@ -92,18 +92,14 @@ export default () => {
           {/* Btns */}
           <div className='btns'>
             {/* Random Img */}
-            <a
-              onClick={randomImgFunc}
-              data-tip='Random Image'
-              alt='Random'
-            >
+            <a onClick={randomImgFunc} data-tip='Random' alt='Random'>
               <img src='/assets/img/random.png' alt='Random Img' />
             </a>
 
             {/* Downlaod Img */}
             <a
               href={randomImage}
-              data-tip='Downlaod Image'
+              data-tip='Downlaod'
               alt='Download'
               target='_blank'
               onClick={e => download(e)}
@@ -113,14 +109,14 @@ export default () => {
 
             {/* Upload Image */}
             <input type='file' onChange={uploadImg} id='fileUpload' />
-            <label htmlFor='fileUpload' data-tip='Upload Image'>
+            <label htmlFor='fileUpload' data-tip='Upload'>
               <img src='/assets/img/upload.png' alt='Upload Img' />
             </label>
 
             {/* Remove Image */}
             <img
               onClick={removeUplaodedImg}
-              data-tip='Remove Image'
+              data-tip='Remove'
               src='/assets/img/delete.png'
               alt='Remove image'
             />
