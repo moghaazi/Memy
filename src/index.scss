@@ -1,5 +1,5 @@
 // --------------------------- Font --------------------------------------
-@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
 
 *,
 *::before,
@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
   background-color: #121212;
   color: white;
-  font: bold 2em cursive;
+  font: bold 2rem 'Sigmar One', cursive;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,6 +96,47 @@ body {
     flex-direction: column;
   }
 
+  // Img
+  .img-wrapper {
+    margin-right: 3rem;
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 1px;
+    overflow: hidden;
+
+    img {
+      top: 0px;
+      right: 0;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      z-index: -1;
+      border-radius: 10px;
+    }
+
+    .text {
+      position: absolute;
+      color: white;
+      font-size: 4rem;
+      -webkit-text-stroke: 2px #111 !important;
+      text-align: center;
+      z-index: 5;
+      text-transform: uppercase;
+      word-wrap: break-word;
+    }
+
+    .top-text {
+      top: 15px;
+    }
+
+    .bottom-text {
+      bottom: 10px;
+    }
+  }
+
   // Input
   form {
     margin-top: 3rem;
@@ -133,47 +174,6 @@ body {
     // Uplaod Image
     #fileUpload {
       display: none;
-    }
-  }
-
-  // Img
-  .img-wrapper {
-    margin-right: 3rem;
-    position: relative;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    padding: 1px;
-    overflow: hidden;
-
-    img {
-      top: 0px;
-      right: 0;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      z-index: -1;
-      border-radius: 10px;
-    }
-
-    .text {
-      position: absolute;
-      color: white;
-      font-size: 3rem;
-      text-align: center;
-      -webkit-text-stroke: 2.5px #111 !important;
-      z-index: 5;
-      text-transform: uppercase;
-      word-wrap: break-word;
-    }
-
-    .top-text {
-      top: 15px;
-    }
-
-    .bottom-text {
-      bottom: 10px;
     }
   }
 }
