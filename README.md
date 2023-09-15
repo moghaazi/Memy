@@ -1,6 +1,6 @@
-![Preview](public/assets/img/preview.png)
+![Preview](public/assets/img/preview.jpg)
 
 ### Run
 
-    yarn
-    yarn dev
+    bun install 
+    bun run dev
