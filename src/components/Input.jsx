@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import html2canvas from 'html2canvas'
 import React, { useState } from 'react'
 import ReactTooltip from 'react-tooltip'
