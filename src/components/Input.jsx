@@ -56,7 +56,7 @@ export default function MemeGenerator() {
       <Logo />
 
       {/* React Tooltip */}
-      <ReactTooltip place='bottom' type='light' effect='solid' />
+      <Tooltip place='bottom' type='light' effect='solid' />
 
       {/* Meme Temeplate */}
       <div className='warpper container'>
