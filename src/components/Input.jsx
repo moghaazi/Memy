@@ -1,6 +1,6 @@
 import html2canvas from 'html2canvas'
 import React, { useState } from 'react'
-import ReactTooltip from 'react-tooltip'
+import { Tooltip } from 'react-tooltip'
 import Typed from 'react-typed'
 import Logo from './Logo'
 
