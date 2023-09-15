@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-=======
 import html2canvas from 'html2canvas'
 import React, { useState } from 'react'
 import ReactTooltip from 'react-tooltip'
-import Logo from './Logo'
 import Typed from 'react-typed'
+import Logo from './Logo'
 
 export default function MemeGenerator() {
   const [inputText, setInputText] = useState({
@@ -35,23 +33,22 @@ export default function MemeGenerator() {
 
   // Function to download the meme
 
+  const downloadMeme = () => {
+    const memeContainer = document.querySelector('.img-container')
 
-const downloadMeme = () => {
-  const memeContainer = document.querySelector('.img-container')
+    // Render the image on the HTML canvas
+    const canvas = document.createElement('canvas')
+    canvas.width = memeContainer.clientWidth
+    canvas.height = memeContainer.clientHeight
 
-  // Render the image on the HTML canvas
-  const canvas = document.createElement('canvas')
-  canvas.width = memeContainer.clientWidth
-  canvas.height = memeContainer.clientHeight
-
-  html2canvas(memeContainer).then(canvas => {
-    // Append the text to the memeContainer element
-     const link = document.createElement('a')
-    link.href = canvas.toDataURL()
-    link.download = 'meme.png'
-    link.click()
-  })
-}
+    html2canvas(memeContainer).then(canvas => {
+      // Append the text to the memeContainer element
+      const link = document.createElement('a')
+      link.href = canvas.toDataURL()
+      link.download = 'meme.png'
+      link.click()
+    })
+  }
 
   return (
     <div>
@@ -71,7 +68,11 @@ const downloadMeme = () => {
               {inputText.topText}
             </h3>
             <img
-              src= {selectedImage ? URL.createObjectURL(selectedImage) : "./assets/img/spiderman.jpg"}
+              src={
+                selectedImage
+                  ? URL.createObjectURL(selectedImage)
+                  : './assets/img/spiderman.jpg'
+              }
               style={{ marginRight: '30px' }}
             />
             <h3
@@ -88,7 +89,7 @@ const downloadMeme = () => {
           <Typed strings={['Start Type Meme Lord']} typeSpeed={40} />
           <br />
 
-         <input
+          <input
             type='text'
             name='topText'
             placeholder='Add Top Text'
@@ -148,4 +149,3 @@ const downloadMeme = () => {
     </div>
   )
 }
->>>>>>> d8bccfa (.)
