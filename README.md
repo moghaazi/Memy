@@ -1,4 +1,4 @@
-![Preview](public/assets/img/preview.jpg)
+![Preview](public/assets/img/preview.png)
 
 ### Run
 
