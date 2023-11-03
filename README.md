@@ -2,5 +2,5 @@
 
 ### Run
 
-    bun install 
-    bun run dev
+    pnpm install 
+    pnpm run dev
