@@ -6,8 +6,8 @@ import Logo from './Logo'
 
 export default function MemeGenerator() {
   const [inputText, setInputText] = useState({
-    topText: 'Your Top Text Here',
-    bottomText: 'Your Bottom Text Here',
+    topText: 'me not voting because nothing ever changes',
+    bottomText: 'Nothing ever changed because I didn't vote',
   })
 
   const [selectedImage, setSelectedImage] = useState(null)
